@@ -1,0 +1,29 @@
+No. 1
+select * from city where CountryCode = 'IDN' order by Population desc limit 10;
+
+
+No. 2
+
+selectc.ID as id, c.Name as nama_kota, c.District as district, co.Name as negara, c.Population as population from city c left join country co on c.CountryCode = co.Code
+order by Population desc limit 10;
+
+No.3
+
+select Code as code, Name as name, Continent as continent, Region as region, IndepYear as tahun_merdeka from country
+where IndepYear is not null order by IndepYear limit 10;
+
+No.4
+
+select cl.CountryCode, c.name, cl.Language, cl.IsOfficial, cl.percentage
+from countrylanguage cl
+left join country c ON cl.CountryCode = c.Code
+where language = 'English' AND isOfficial = 'T'
+order by percentage desc limit 10
+
+
+No.5
+
+select co.Name as Negara_ASEAN, co.Population as Populasi_Negara, co.GNP, c.Name as Ibukota, c.Population as Populasi_Ibukota
+from country co left join city c on co.Capital = c.ID
+where co.Name in ('Brunei','Cambodia','East Timor','Indonesia','Laos','Malaysia','Myanmar','Philippines',
+'Singapore','Thailand','Vietnam') order by co.Name;
